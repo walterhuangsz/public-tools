@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Blog"
+    targetNamespace="http://tempuri.org/Blog.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/Blog.xsd"
+    xmlns:mstns="http://tempuri.org/Blog.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:complexType name="BlogsType">
+    <xs:sequence>
+      <xs:element name="Blog" type="BlogType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BlogType">
+    <xs:sequence>
+      <xs:element name="ID" type="xs:int" default="12" />
+      <xs:element name="Age" type="AgeType"/>
+      <xs:element name="Author" type="xs:string"/>
+      <xs:element name="Title" type="xs:string"/>
+      <xs:element name="Content" type="xs:string"/>
+      <xs:element name="Comments" nillable="true" type="BlogsType" minOccurs="0"/>
+      <xs:element name="Car" type="carType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TestType">
+    <xs:sequence>
+      <xs:element name="Test1" type="xs:string"/>
+      <xs:element name="Test2" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="AgeType">
+    <xs:restriction base="xs:int" >
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="carType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Audi"/>
+      <xs:enumeration value="Golf"/>
+      <xs:enumeration value="BMW"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

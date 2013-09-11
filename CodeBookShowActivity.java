@@ -24,14 +24,6 @@ public class CodeBookShowActivity extends BaseActivity {
 	/**
 	 * init
 	 */
-	private void setUI() {
-
-		instance = this;
-
-		showLV = (ListView) findViewById(R.id.code_book_show_lv);
-		list = new CodeBookDB(this).queryAll();
-		showLV.setAdapter(new CodeBookShowAdapter(this, list));
-	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
